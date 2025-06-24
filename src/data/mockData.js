@@ -69,4 +69,33 @@ export const malwareCards = [
     role: "Utility",
   },
 ];
+// src/data/mockData.js
+
+export const topActorData = [
+  { name: "APT28", height: 80 },
+  { name: "Lazarus", height: 65 },
+  { name: "FIN7", height: 50 },
+  { name: "APT29", height: 45 },
+  { name: "TA505", height: 40 },
+];
+
+export const actorCards = [
+  {
+    name: "APT28",
+    region: "Europe",
+    industries: ["Government", "Defense"],
+    malware: ["X-Agent", "Zebrocy"],
+    tools: ["Mimikatz"],
+    description: "APT28 is a Russian cyber espionage group believed to be associated with the GRU...",
+  },
+  {
+    name: "Lazarus Group",
+    region: "Asia",
+    industries: ["Finance", "Healthcare"],
+    malware: ["WannaCry", "Brambul"],
+    tools: ["Empire"],
+    description: "Lazarus is a North Korean group known for its wide range of financial and political attacks...",
+  },
+];
+
 

@@ -1,75 +1,92 @@
 import React, { useState } from "react";
-import "./ActorsPage.css"; 
+import { FaFilter, FaUserSecret } from "react-icons/fa";
+import { topActorData, actorCards } from "../data/mockData";
 
-const allRegions = ["All", "Africa", "Asia", "Europe", "North America"];
-const allIndustries = ["All", "Finance", "Government", "Healthcare", "Energy"];
-const allMalware = ["All", "Emotet", "TrickBot", "LokiBot", "Cobalt Strike"];
-const allTools = ["All", "Mimikatz", "Metasploit", "C2", "PowerShell"];
+export default function ActorsPage() {
+  const [showFilters, setShowFilters] = useState(false);
 
-export default function ActorsPage({ filteredBars = [], activeBar, handleBarClick }) {
-  const [regionFilter, setRegionFilter] = useState("All");
-  const [industryFilter, setIndustryFilter] = useState("All");
-  const [malwareFilter, setMalwareFilter] = useState("All");
-  const [toolFilter, setToolFilter] = useState("All");
-
-  // Filter logic
-  const filteredActors = filteredBars.filter((bar) => {
-    return (
-      (regionFilter === "All" || bar.region === regionFilter) &&
-      (industryFilter === "All" || bar.industry === industryFilter) &&
-      (malwareFilter === "All" || bar.malware?.includes(malwareFilter)) &&
-      (toolFilter === "All" || bar.tools?.includes(toolFilter))
-    );
-  });
+  const toggleFilter = () => setShowFilters(!showFilters);
 
   return (
-    <div className="actors-page">
-      <h2 className="section-title">Threat Actors</h2>
-
-      {/* Filters */}
-      <div className="filters">
-        <select onChange={(e) => setRegionFilter(e.target.value)} value={regionFilter}>
-          {allRegions.map((region) => <option key={region}>{region}</option>)}
-        </select>
-
-        <select onChange={(e) => setIndustryFilter(e.target.value)} value={industryFilter}>
-          {allIndustries.map((ind) => <option key={ind}>{ind}</option>)}
-        </select>
-
-        <select onChange={(e) => setMalwareFilter(e.target.value)} value={malwareFilter}>
-          {allMalware.map((m) => <option key={m}>{m}</option>)}
-        </select>
-
-        <select onChange={(e) => setToolFilter(e.target.value)} value={toolFilter}>
-          {allTools.map((t) => <option key={t}>{t}</option>)}
-        </select>
+    <div className="actors-page main-content">
+      <div className="top-bar">
+        <button className="filter-icon-btn" onClick={toggleFilter}>
+          <FaFilter />
+        </button>
       </div>
 
-      {/* Bar Chart */}
-      <div className="actor-bars">
-        {filteredActors.map((bar, index) => (
-          <div
-            key={index}
-            className={`actor-bar ${activeBar === bar.title ? "active" : ""}`}
-            style={{ height: bar.height }}
-            onClick={() => handleBarClick(bar.title)}
-          >
-            {bar.title}
+      {showFilters && (
+        <div className="filter-dropdown">
+          <div className="filter-header">
+            <span>Filters</span>
+            <button onClick={toggleFilter}>X</button>
           </div>
-        ))}
-      </div>
+          <input className="filter-search" type="text" placeholder="Search Actor..." />
 
-      {/* Cards Section */}
-      <div className="actor-cards">
-        {filteredActors.map((actor, index) => (
-          <div className="actor-card" key={index}>
-            <h3>{actor.title}</h3>
+          <div className="filter-group">
+            <div className="filter-group-title">Actor Region</div>
+            {["Africa", "Asia", "Europe", "South Korea", "India"].map(region => (
+              <label key={region}><input type="checkbox" /> {region}</label>
+            ))}
+          </div>
+
+          <div className="filter-group">
+            <div className="filter-group-title">Target Industries</div>
+            {["Finance", "Government", "Healthcare", "Energy", "IT"].map(industry => (
+              <label key={industry}><input type="checkbox" /> {industry}</label>
+            ))}
+          </div>
+
+          <div className="filter-group">
+            <div className="filter-group-title">Associated Malware</div>
+            {["Emotet", "TrickBot", "LokiBot", "Cobalt Strike"].map(malware => (
+              <label key={malware}><input type="checkbox" /> {malware}</label>
+            ))}
+          </div>
+
+          <div className="filter-group">
+            <div className="filter-group-title">Associated Tools</div>
+            {["Metasploit", "Mimikatz", "Empire"].map(tool => (
+              <label key={tool}><input type="checkbox" /> {tool}</label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="content-grid">
+        <div className="square-card">
+          <div className="top-card-header">
+            <h4>Top Threat Actors</h4>
+            <select>
+              <option>Last 1 Quarter</option>
+              <option>Last 6 Months</option>
+              <option>Last Year</option>
+            </select>
+          </div>
+          <div className="bar-chart">
+            <div className="y-axis-labels">
+              {topActorData.map((a, i) => <div key={i}>{a.name}</div>)}
+            </div>
+            <div className="bars">
+              {topActorData.map((a, i) => (
+                <div key={i} className="bar" style={{ height: `${a.height}%`, backgroundColor: "red" }}>
+                  <span>{a.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {actorCards.map((actor, index) => (
+          <div className="rect-card" key={index}>
+            <h4>{actor.name} <FaUserSecret /></h4>
             <p><strong>Region:</strong> {actor.region}</p>
-            <p><strong>Industry:</strong> {actor.industry}</p>
-            <p><strong>Malware:</strong> {actor.malware?.join(", ")}</p>
-            <p><strong>Tools:</strong> {actor.tools?.join(", ")}</p>
-            <div className="actor-graph-placeholder">
-              <p>[Graph Placeholder]</p>
+            <p><strong>Target Industries:</strong> {actor.industries.join(", ")}</p>
+            <p><strong>Associated Malware:</strong> {actor.malware.join(", ")}</p>
+            <p><strong>Associated Tools:</strong> {actor.tools.join(", ")}</p>
+            <p><strong>Description:</strong> {actor.description.slice(0, 150)}... <a href="#">View more</a></p>
+            <div style={{ textAlign: "right" }}>
+              <a href="#" style={{ color: "#ccc" }}>View ↗</a>
             </div>
           </div>
         ))}
