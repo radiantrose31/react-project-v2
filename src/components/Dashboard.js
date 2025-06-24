@@ -9,7 +9,7 @@ import "../App.css";
 function Dashboard({ searchTerm, setSearchTerm }) {
   return (
     <div className="dashboard-page">
-      <TopBar title="Dashboard" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      
       <div className="content-grid">
         <div className="square-card">
           <h3>Threat Stats</h3>
