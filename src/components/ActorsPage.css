@@ -1,0 +1,66 @@
+.actors-page {
+  padding: 20px;
+  color: #fff;
+  background-color: #1e1e2f;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  padding: 6px 10px;
+  background: #2e2e3e;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+
+.actor-bars {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.actor-bar {
+  background: #444;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.actor-bar.active {
+  background: #007acc;
+}
+
+.actor-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.actor-card {
+  background-color: #2d2d3a;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px #000;
+}
+
+.actor-graph-placeholder {
+  margin-top: 10px;
+  background-color: #111;
+  border: 1px dashed #555;
+  padding: 20px;
+  text-align: center;
+  color: #ccc;
+}

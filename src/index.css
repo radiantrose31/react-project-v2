@@ -381,21 +381,6 @@ body {
   pointer-events: none;
 }
 
-.actors-page {
-  padding: 20px;
-  position: relative;
-  margin-top: 10px;
-}
-
-.actor-bar {
-  width: 50px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 8px 0;
-  border-radius: 4px;
-  cursor: pointer;
-}
 .top-card-header {
   display: flex;
   justify-content: space-between;
