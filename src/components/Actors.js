@@ -1,7 +1,6 @@
 import React from "react";
 
-
-export default function ActorsPage({ filteredBars, activeBar, handleBarClick }) {
+export default function ActorsPage({ filteredBars = [], activeBar, handleBarClick }) {
   return (
     <div className="actors-page">
       <div className="actor-bars">
@@ -19,4 +18,3 @@ export default function ActorsPage({ filteredBars, activeBar, handleBarClick }) 
     </div>
   );
 }
- 
