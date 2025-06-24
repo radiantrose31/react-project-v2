@@ -410,3 +410,81 @@ body {
     bottom: -20px;
   }
 }
+
+.vulnerabilities-page {
+  padding: 20px;
+  color: #fff;
+}
+
+.vuln-header h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cve-cards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cve-card {
+  background-color: #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.cve-card h4 {
+  color: #60a5fa;
+  margin-bottom: 5px;
+}
+
+.cve-card p {
+  font-size: 14px;
+}
+
+.cve-card .severity {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cve-card.critical .severity {
+  background-color: #ef4444;
+  color: white;
+}
+
+.cve-card.high .severity {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.chart-section-horizontal {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.chart-box {
+  background-color: #0f172a;
+  padding: 20px;
+  border-radius: 12px;
+  width: 450px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.chart-box h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+

@@ -1,29 +1,99 @@
- import React from "react";
+import React from "react";
+import { Pie, Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+} from "chart.js";
 
+
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
+
+const topCVEs = [
+  {
+    id: "CVE-2024-3094",
+    title: "SSH Backdoor",
+    severity: "Critical",
+    link: "https://nvd.nist.gov/vuln/detail/CVE-2024-3094",
+  },
+  {
+    id: "CVE-2023-23397",
+    title: "Outlook Privilege Escalation",
+    severity: "High",
+    link: "https://nvd.nist.gov/vuln/detail/CVE-2023-23397",
+  },
+  {
+    id: "CVE-2024-20362",
+    title: "Cisco IOS XE RCE",
+    severity: "Critical",
+    link: "https://nvd.nist.gov/vuln/detail/CVE-2024-20362",
+  },
+];
+
+const cveCategories = {
+  "Web Exploits": 23,
+  "Privilege Escalation": 15,
+  "RCE": 30,
+  "Zero Days": 8,
+};
+
+const severityData = {
+  labels: ["Critical", "High", "Medium", "Low"],
+  datasets: [
+    {
+      data: [12, 24, 30, 10],
+      backgroundColor: ["#f87171", "#fbbf24", "#60a5fa", "#34d399"],
+      borderWidth: 1,
+    },
+  ],
+};
+
+const categoryBarData = {
+  labels: Object.keys(cveCategories),
+  datasets: [
+    {
+      label: "CVEs",
+      data: Object.values(cveCategories),
+      backgroundColor: ["#6366f1", "#06b6d4", "#f97316", "#10b981"],
+      borderRadius: 8,
+    },
+  ],
+};
 
 export default function VulnerabilitiesPage() {
   return (
     <div className="vulnerabilities-page main-content">
-      <h2>Top CVEs by Severity</h2>
-      <ul>
-        <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-3094" target="_blank">CVE-2024-3094 - SSH Backdoor</a> (Critical)</li>
-        <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-23397" target="_blank">CVE-2023-23397 - Microsoft Outlook Privilege Escalation</a> (High)</li>
-        <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-20362" target="_blank">CVE-2024-20362 - Cisco IOS XE Remote Code Execution</a> (Critical)</li>
-      </ul>
+      <div className="vuln-header">
+        <h2>Top CVEs by Severity</h2>
+      </div>
 
-      <h3>CVEs by Category</h3>
-      <ul>
-        <li>Web Exploits: 23</li>
-        <li>Privilege Escalation: 15</li>
-        <li>RCE: 30</li>
-        <li>Zero Days: 8</li>
-      </ul>
+      <div className="cve-cards-container">
+        {topCVEs.map((cve) => (
+          <div key={cve.id} className={`cve-card ${cve.severity.toLowerCase()}`}>
+            <a href={cve.link} target="_blank" rel="noopener noreferrer">
+              <h4>{cve.id}</h4>
+            </a>
+            <p>{cve.title}</p>
+            <span className="severity">{cve.severity}</span>
+          </div>
+        ))}
+      </div>
 
-      <div style={{ marginTop: "20px" }}>
-        <h3>CVSS Trend Chart</h3>
-        <img src="https://nvd.nist.gov/Content/images/nvd_banner_graphic.png" alt="CVSS Trends" width="100%" />
+      <div className="chart-section-horizontal">
+        <div className="chart-box">
+          <h3>Severity Distribution (Pie)</h3>
+          <Pie data={severityData} />
+        </div>
+
+        <div className="chart-box">
+          <h3>CVEs by Category (Bar)</h3>
+          <Bar data={categoryBarData} />
+        </div>
       </div>
     </div>
   );
 }
-
