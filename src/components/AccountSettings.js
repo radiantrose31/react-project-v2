@@ -5,14 +5,7 @@ import TopBar from "../components/TopBar";
 export default function AccountSettings({ searchTerm, setSearchTerm, showNotif, setShowNotif, showHelp, setShowHelp, showUser, setShowUser }) {
   return (
     <>
-      <TopBar
-        activeMenu="Account Settings"
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        setShowNotif={setShowNotif}
-        setShowHelp={setShowHelp}
-        setShowUser={setShowUser}
-      />
+      
       {showNotif && <div className="popup">No new notifications</div>}
       {showHelp && <div className="popup center-popup">Help content goes here...</div>}
       {showUser && <div className="popup center-popup">User settings menu...</div>}

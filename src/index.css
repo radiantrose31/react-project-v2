@@ -281,7 +281,8 @@ body {
 .vulnerabilities-page .main-content,
 .malware-tools-page .main-content,
 .account-settings-page .main-content {
-  padding: 20px;
+  padding: 60px;
+  position: relative;
 }
 
 .filter-icon-btn {
@@ -302,8 +303,8 @@ body {
 
 .filter-dropdown {
   position: absolute;
-  top: 56px;
-  right: 16px;
+  top: 90px;
+  right: 20px;
   width: 280px;
   background: #222;
   border: 1px solid #555;

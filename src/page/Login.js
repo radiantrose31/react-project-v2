@@ -12,7 +12,7 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     // Dummy login validation logic
-    if (email === "admin@example.com" && password === "password") {
+    if (email === "aditi@example.com" && password === "password") {
       navigate("/dashboard");
     } else {
       setError("Incorrect email or password");
