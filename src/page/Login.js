@@ -1,4 +1,4 @@
-// src/pages/Login.js
+
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
@@ -11,8 +11,8 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Dummy login validation logic
-    if (email === "aditi@example.com" && password === "password") {
+  
+    if (email === "aditi@gmail.com" && password === "password") {
       navigate("/dashboard");
     } else {
       setError("Incorrect email or password");
@@ -51,7 +51,7 @@ export default function Login() {
 
         <div className="login-links">
           <a href="#">Forgot Password?</a>
-          <a href="https://www.bing.com/search?q=github+&form=ANSPH1&refig=7d7fe12aadb344468ac2be5ace808929&pc=ASTS">Need Help?</a>
+          <a href="#">Need Help?</a>
         </div>
       </div>
     </div>
