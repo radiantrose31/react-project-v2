@@ -1,4 +1,3 @@
- // src/components/Dashboard.js
 import React from "react";
 import TopBar from "./TopBar";
 import LineChart from "./LineChart";
