@@ -51,6 +51,7 @@ function Dashboard({ searchTerm, setSearchTerm }) {
           <h3>Quick Notes</h3>
           <div className="underline"></div>
           <p>
+            General notes
             SOC analysts should monitor abnormal behaviors in actor timeline. Keep an
             eye on suspicious IPs and update threat feeds daily.
           </p>

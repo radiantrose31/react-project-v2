@@ -412,14 +412,17 @@ body {
 }
 
 .vulnerabilities-page {
-  padding: 20px;
+  background-color: #111;
   color: #fff;
+  padding: 20px;
+  min-height: 100vh;
 }
 
 .vuln-header h2 {
   text-align: center;
   font-size: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #fff;
 }
 
 .cve-cards-container {
@@ -427,37 +430,42 @@ body {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .cve-card {
-  background-color: #1e293b;
-  padding: 15px;
-  border-radius: 10px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
   width: 250px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.cve-card:hover {
+  transform: translateY(-5px);
 }
 
 .cve-card h4 {
+  margin: 0 0 10px;
   color: #60a5fa;
-  margin-bottom: 5px;
+  font-size: 18px;
 }
 
 .cve-card p {
-  font-size: 14px;
+  margin: 0 0 10px;
+  font-size: 16px;
 }
 
 .cve-card .severity {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
   font-weight: bold;
-  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 .cve-card.critical .severity {
-  background-color: #ef4444;
+  background-color: #dc2626;
   color: white;
 }
 
@@ -466,25 +474,33 @@ body {
   color: white;
 }
 
+.cve-card.medium .severity {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.cve-card.low .severity {
+  background-color: #10b981;
+  color: white;
+}
+
 .chart-section-horizontal {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 40px;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .chart-box {
-  background-color: #0f172a;
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 12px;
-  width: 450px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .chart-box h3 {
   text-align: center;
   margin-bottom: 15px;
+  font-size: 20px;
 }
-
-
