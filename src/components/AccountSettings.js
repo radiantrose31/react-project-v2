@@ -29,7 +29,8 @@ export default function AccountSettings({ searchTerm, setSearchTerm, showNotif, 
         <p>Password Last Changed: 2025-05-20</p>
         <button>Change Password</button>
         <br /><br />
-        <button className="logout" style={{ background: "#e53935" }}>Delete Account</button>
+        <button className="logout" style={{ background: "#e53935", padding: "6px 12px", fontSize: "14px" }}>Delete Account</button>
+
       </div>
     </>
   );
