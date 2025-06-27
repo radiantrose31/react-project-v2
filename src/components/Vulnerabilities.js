@@ -84,14 +84,14 @@ export default function VulnerabilitiesPage() {
 
       <div className="chart-section-horizontal">
         <div className="chart-box">
-          <h3>Severity Distribution (Pie)</h3>
+          <h3>Severity Distribution</h3>
           <div className="chart-wrapper pie-wrapper">
             <Pie data={severityData} />
           </div>
         </div>
 
         <div className="chart-box">
-          <h3>CVEs by Category (Bar)</h3>
+          <h3>CVEs by Category</h3>
           <div className="chart-wrapper">
             <Bar data={categoryBarData} />
           </div>
