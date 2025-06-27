@@ -1,5 +1,3 @@
-// Static mock data for dashboard, actors, etc.
-
 export const statsData = [
   { id: 1, label: "Indicators", count: 1200, boxClass: "box1" },
   { id: 2, label: "Actors", count: 48, boxClass: "box2" },
