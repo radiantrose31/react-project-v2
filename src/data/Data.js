@@ -41,7 +41,7 @@ export const cveCategories = [
   { category: "RCE", count: 30 },
   { category: "Zero Days", count: 8 }
 ];
- // src/mockdata.js
+
 
 export const topMalwareData = [
   { name: "BEACON", height: 90 },
